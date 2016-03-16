@@ -20,7 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         func successOperation() -> Operation<String, NSError>{
             return Operation{observer in
-                observer.success()
+                
+                // observer.next("this *does* reach the observe block")
+                
+                observer.success() // this never reaches the observe block
+                
                 return SimpleDisposable()
             }
         }
@@ -44,6 +48,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
 }
 
